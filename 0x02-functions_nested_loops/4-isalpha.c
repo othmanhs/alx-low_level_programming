@@ -1,4 +1,4 @@
-#include "main.h"
+#include"main.h"
 
 /**
  * _isalpha - checks if character is a letter
@@ -16,4 +16,3 @@ int _isalpha(int c)
 		return (1);
 	return (0);
 }
-
