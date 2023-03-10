@@ -1,10 +1,24 @@
-#include "main.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <ctype.h>
-#include <string.h>
+#include "holberton.h"
 
-void _puts(char *s)
+/**
+ * _puts - print a string
+ *
+ * @str: string pointer
+ *
+ * Return: nothing
+*/
+
+void _puts(char *str)
 {
-    puts(s);
+	int i;
+
+	for (i = 0; str[i] >= 0; i++)
+	{
+		if (str[i] == '\0')
+		{
+			_putchar('\n');
+			break;
+		}
+		_putchar(str[i]);
+	}
 }
