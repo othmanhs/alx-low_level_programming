@@ -2,10 +2,10 @@
 
 /**
  * get_bit - returns the value of a bit at a given index.
- * @n: the number to check the bits
- * @index: the index of the bit to be checked
+ * @n: checking bits
+ * @index: which to check bit
  *
- * Return: the value of the bit at index, or -1 if index is out of range
+ * Return: the value of the bit at index
  */
 int get_bit(unsigned long int n, unsigned int index)
 {
@@ -13,7 +13,6 @@ int get_bit(unsigned long int n, unsigned int index)
 
 	if (index > (sizeof(unsigned long int) * 8 - 1))
 		return (-1);
-
 	div = 1 << index;
 	res = n & div;
 	if (res == div)
@@ -21,4 +20,3 @@ int get_bit(unsigned long int n, unsigned int index)
 
 	return (0);
 }
-
