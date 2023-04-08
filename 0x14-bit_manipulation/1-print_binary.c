@@ -1,25 +1,48 @@
-#include <stdio.h>
 #include "main.h"
+
+/**
+ * _power - calculates the value of base raised to the power of pow
+ * @base: the base
+ * @pow: the power
+ * Return: the calculated value of base raised to the power of pow
+ */
+unsigned long int _power(unsigned int base, unsigned int pow)
+{
+	unsigned long int num;
+	unsigned int i;
+
+	num = 1;
+	for (i = 1; i <= pow; i++)
+		num *= base;
+	return (num);
+}
 
 /**
  * print_binary - prints the binary representation of a number
  * @n: the number to be printed in binary
- *
  * Return: void
  */
 void print_binary(unsigned long int n)
 {
-	int i;
-	unsigned long int mask = 1UL << (sizeof(unsigned long int) * 8 - 1);
+	unsigned long int dev, result;
+	char flag;
 
-	for (i = 0; i < sizeof(unsigned long int) * 8; i++)
+	flag = 0;
+	dev = _power(2, sizeof(unsigned long int) * 8 - 1);
+
+	while (dev != 0)
 	{
-		if (n & mask)
+		result = n & dev;
+		if (result == dev)
+		{
+			flag = 1;
 			_putchar('1');
-		else
+		}
+		else if (flag == 1 || dev == 1)
+		{
 			_putchar('0');
-
-		mask >>= 1;
+		}
+		dev >>= 1;
 	}
 }
 
